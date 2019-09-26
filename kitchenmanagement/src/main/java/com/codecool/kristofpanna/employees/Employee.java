@@ -16,7 +16,8 @@ public abstract class Employee {
     }
 
     public void createTaxReport() {
-        System.out.println("Tax: " + salary);
+        int taxPercent = 99;
+        System.out.println("Tax: " + salary * taxPercent / 100);
     }
 
 }
