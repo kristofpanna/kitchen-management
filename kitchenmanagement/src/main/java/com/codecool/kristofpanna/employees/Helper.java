@@ -18,7 +18,7 @@ public class Helper extends Employee {
     private void initIngredients() {
         int maxAmount = 3;
         for (IngredientType ingredientType : IngredientType.values()) {
-            ingredients.put(ingredientType, Randomize.getRandInt(maxAmount));
+            ingredients.put(ingredientType, Randomize.getRandIntFromOne(maxAmount));
         }
     }
 

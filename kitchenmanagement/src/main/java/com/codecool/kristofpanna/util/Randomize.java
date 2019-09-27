@@ -9,8 +9,16 @@ public class Randomize {
      * Get a random integer between 1 and the given number.
      * @param to max possible value, inclusive
      */
-    public static int getRandInt(int to) {
-        return random.nextInt(to + 1);
+    public static int getRandIntFromOne(int to) {
+        return random.nextInt(to) + 1;
+    }
+
+    /**
+     * Get a random integer between 0 and the given number.
+     * @param to max possible value, exclusive
+     */
+    public static int getRandIntFromZero(int to) {
+        return random.nextInt(to);
     }
 
     /**

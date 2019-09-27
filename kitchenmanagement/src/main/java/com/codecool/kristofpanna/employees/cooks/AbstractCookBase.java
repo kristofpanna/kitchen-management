@@ -5,7 +5,7 @@ import com.codecool.kristofpanna.employees.Employee;
 public abstract class AbstractCookBase extends Employee {
     public boolean isKnifeSetReceived = false;
 
-    public AbstractCookBase() {
+    protected AbstractCookBase() {
         isKnifeSetReceived = true;
     }
 
