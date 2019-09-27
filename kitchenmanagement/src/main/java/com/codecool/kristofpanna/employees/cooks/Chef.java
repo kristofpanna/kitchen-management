@@ -9,4 +9,9 @@ public class Chef extends AbstractCookBase {
     public void cook() {
         System.out.println("Yell!");
     }
+
+    @Override
+    public String toString() {
+        return "Chef " + super.toString();
+    }
 }

@@ -1,6 +1,8 @@
 package com.codecool.kristofpanna.employees.cooks;
 
-public abstract class AbstractCookBase {
+import com.codecool.kristofpanna.employees.Employee;
+
+public abstract class AbstractCookBase extends Employee {
     public boolean isKnifeSetReceived = false;
 
     public AbstractCookBase() {
@@ -8,4 +10,9 @@ public abstract class AbstractCookBase {
     }
 
     public abstract void cook();
+
+    @Override
+    public String toString() {
+        return "AbstractCook " + super.toString();
+    }
 }

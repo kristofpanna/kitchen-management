@@ -21,4 +21,9 @@ public class Helper extends Employee {
             ingredients.put(ingredientType, Randomize.getRandInt(maxAmount));
         }
     }
+
+    @Override
+    public String toString() {
+        return "Helper " + super.toString();
+    }
 }

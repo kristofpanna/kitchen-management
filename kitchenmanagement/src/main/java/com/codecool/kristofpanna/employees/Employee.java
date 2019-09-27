@@ -20,4 +20,12 @@ public abstract class Employee {
         System.out.println("Tax: " + salary * taxPercent / 100);
     }
 
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", birthDate=" + birthDate +
+                ", salary=" + salary +
+                '}';
+    }
 }
