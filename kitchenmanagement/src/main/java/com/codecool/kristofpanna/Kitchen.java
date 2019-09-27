@@ -9,7 +9,7 @@ import com.codecool.kristofpanna.ingredients.IngredientType;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Kitchen implements YellBroadcaster {
+public class Kitchen {
     public Chef chef; // (TODO do we need it?)
     public List<AbstractCookBase> cooks = new ArrayList<>();
     public List<Helper> helpers = new ArrayList<>();
@@ -37,7 +37,7 @@ public class Kitchen implements YellBroadcaster {
     }
 
     private void hireChef() {
-        this.chef = new Chef(this);
+        this.chef = new Chef(this::askForIngredient);
         cooks.add(this.chef);
         System.out.println("Our chef: " + this.chef);
     }
@@ -55,7 +55,6 @@ public class Kitchen implements YellBroadcaster {
      * @param ingredientType type of ingredient to ask for
      * @return if someone gave it to the chef
      */
-    @Override
     public boolean askForIngredient(IngredientType ingredientType) {
         System.out.println("Chef's asking for " + ingredientType);
         for (Helper helper : helpers) {
