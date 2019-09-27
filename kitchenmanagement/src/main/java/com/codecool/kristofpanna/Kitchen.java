@@ -14,14 +14,14 @@ public class Kitchen {
     private List<AbstractCookBase> cooks = new ArrayList<>();
     private List<Helper> helpers = new ArrayList<>();
 
-    public Kitchen(int numberOfCooks, int numberOfHelpers) { // TODO pass ChiefHiringManager (originally created with parameters for the number of each employees)
+    public Kitchen(int numberOfCooks, int numberOfHelpers) { // TODO pass HiringTeam (originally created with parameters for the number of each employees)
         // TODO HiringTeam has specialized managers to hire different kinds of employees (they can have database of potential employee Persons)
         hireCooks(numberOfCooks);
         hireHelpers(numberOfHelpers);
         hireChef();
     }
 
-    // TODO generalize and delegate to HR -> abstract HiringManager (~employee factory) -> hire(person, salary) instead of constructor call
+    // TODO generalize and delegate to HR -> abstract HiringManager? (~employee factory) -> hire(person, salary) (?)
     private void hireCooks(int numberOfCooks) {
         for (int i = 0; i < numberOfCooks; i++) {
             cooks.add(new Cook()); // TODO parametrize (person, salary)
