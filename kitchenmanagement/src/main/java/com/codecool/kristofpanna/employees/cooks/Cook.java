@@ -1,4 +1,4 @@
-package com.codecool.kristofpanna.employees;
+package com.codecool.kristofpanna.employees.cooks;
 
 public class Cook extends AbstractCookBase {
     public Cook() {
