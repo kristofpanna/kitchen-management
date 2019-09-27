@@ -14,10 +14,10 @@ public class Kitchen implements YellBroadcaster {
     public List<AbstractCookBase> cooks = new ArrayList<>();
     public List<Helper> helpers = new ArrayList<>();
 
-    public Kitchen() { // TODO pass ChiefHiringManager (originally created with parameters for the number of each employees)
+    public Kitchen(int numberOfCooks, int numberOfHelpers) { // TODO pass ChiefHiringManager (originally created with parameters for the number of each employees)
         // TODO HiringTeam has specialized managers to hire different kinds of employees (they can have database of potential employee Persons)
-        hireCooks(5);
-        hireHelpers(10);
+        hireCooks(numberOfCooks);
+        hireHelpers(numberOfHelpers);
         hireChef();
     }
 
@@ -58,6 +58,14 @@ public class Kitchen implements YellBroadcaster {
     @Override
     public boolean askForIngredient(IngredientType ingredientType) {
         System.out.println("Chef's asking for " + ingredientType);
+        for (Helper helper : helpers) {
+            boolean gotIngredient = helper.giveIngredient(ingredientType);
+            if (gotIngredient) return true;
+        }
+        // if nobody could give
+        for (Helper helper : helpers) {
+            helper.yellOut();
+        }
         return false;
     }
 }

@@ -22,6 +22,20 @@ public class Helper extends Employee {
         }
     }
 
+    public boolean giveIngredient(IngredientType ingredientType) {
+        Integer currentAmount = ingredients.get(ingredientType);
+        if (currentAmount > 0) {
+            ingredients.put(ingredientType, currentAmount - 1);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void yellOut() {
+        System.out.println("We're all out!");
+    }
+
     @Override
     public String toString() {
         return "Helper " + super.toString();

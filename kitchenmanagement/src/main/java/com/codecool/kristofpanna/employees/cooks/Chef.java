@@ -3,11 +3,17 @@ package com.codecool.kristofpanna.employees.cooks;
 import com.codecool.kristofpanna.YellBroadcaster;
 import com.codecool.kristofpanna.ingredients.IngredientType;
 import com.codecool.kristofpanna.util.Randomize;
+import com.codecool.kristofpanna.util.TimeUtil;
 
 import java.util.HashMap;
 
 public class Chef extends AbstractCookBase {
     private YellBroadcaster yellBroadcaster;
+
+    /**
+     * How many times she yells
+     */
+    private int workTime = 100;
 
     /**
      * Amount of ingredients with the chef by ingredient type.
@@ -29,8 +35,9 @@ public class Chef extends AbstractCookBase {
 
     @Override
     public void cook() {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < workTime; i++) {
             yell();
+            TimeUtil.wait(1);
         }
     }
 
