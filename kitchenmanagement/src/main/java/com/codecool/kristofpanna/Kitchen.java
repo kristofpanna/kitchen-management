@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Kitchen {
-    public Chef chef; // (TODO do we need it?)
-    public List<AbstractCookBase> cooks = new ArrayList<>();
-    public List<Helper> helpers = new ArrayList<>();
+    private Chef chef; // (TODO do we need it?)
+    private List<AbstractCookBase> cooks = new ArrayList<>();
+    private List<Helper> helpers = new ArrayList<>();
 
     public Kitchen(int numberOfCooks, int numberOfHelpers) { // TODO pass ChiefHiringManager (originally created with parameters for the number of each employees)
         // TODO HiringTeam has specialized managers to hire different kinds of employees (they can have database of potential employee Persons)
@@ -22,14 +22,14 @@ public class Kitchen {
     }
 
     // TODO generalize and delegate to HR -> abstract HiringManager (~employee factory) -> hire(person, salary) instead of constructor call
-    public void hireCooks(int numberOfCooks) {
+    private void hireCooks(int numberOfCooks) {
         for (int i = 0; i < numberOfCooks; i++) {
             cooks.add(new Cook()); // TODO parametrize (person, salary)
         }
         System.out.println("Cooks hired: " + cooks);
     }
 
-    public void hireHelpers(int numberOfHelpers) {
+    private void hireHelpers(int numberOfHelpers) {
         for (int i = 0; i < numberOfHelpers; i++) {
             helpers.add(new Helper()); // TODO parametrize (person, salary)
         }
@@ -55,7 +55,7 @@ public class Kitchen {
      * @param ingredientType type of ingredient to ask for
      * @return if someone gave it to the chef
      */
-    public boolean askForIngredient(IngredientType ingredientType) {
+    private boolean askForIngredient(IngredientType ingredientType) {
         System.out.println("Chef's asking for " + ingredientType);
         for (Helper helper : helpers) {
             boolean gotIngredient = helper.giveIngredient(ingredientType);
