@@ -10,28 +10,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Kitchen {
-    private Chef chef; // (TODO do we need it?)
+    private Chef chef;
     private List<AbstractCookBase> cooks = new ArrayList<>();
     private List<Helper> helpers = new ArrayList<>();
 
-    public Kitchen(int numberOfCooks, int numberOfHelpers) { // TODO pass ChiefHiringManager (originally created with parameters for the number of each employees)
-        // TODO HiringTeam has specialized managers to hire different kinds of employees (they can have database of potential employee Persons)
+    public Kitchen(int numberOfCooks, int numberOfHelpers) {
         hireCooks(numberOfCooks);
         hireHelpers(numberOfHelpers);
         hireChef();
     }
 
-    // TODO generalize and delegate to HR -> abstract HiringManager (~employee factory) -> hire(person, salary) instead of constructor call
     private void hireCooks(int numberOfCooks) {
         for (int i = 0; i < numberOfCooks; i++) {
-            cooks.add(new Cook()); // TODO parametrize (person, salary)
+            cooks.add(new Cook());
         }
         System.out.println("Cooks hired: " + cooks);
     }
 
     private void hireHelpers(int numberOfHelpers) {
         for (int i = 0; i < numberOfHelpers; i++) {
-            helpers.add(new Helper()); // TODO parametrize (person, salary)
+            helpers.add(new Helper());
         }
         System.out.println("Helpers hired: " + helpers);
     }
