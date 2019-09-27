@@ -1,14 +1,14 @@
 package com.codecool.kristofpanna.employees.cooks;
 
-import com.codecool.kristofpanna.YellBroadcaster;
 import com.codecool.kristofpanna.ingredients.IngredientType;
 import com.codecool.kristofpanna.util.Randomize;
 import com.codecool.kristofpanna.util.TimeUtil;
 
 import java.util.HashMap;
+import java.util.function.Function;
 
 public class Chef extends AbstractCookBase {
-    private YellBroadcaster yellBroadcaster;
+    private Function<IngredientType, Boolean> ingredientRequester;
 
     /**
      * How many times she yells
@@ -21,9 +21,9 @@ public class Chef extends AbstractCookBase {
     private HashMap<IngredientType, Integer> ingredients = new HashMap<>();
 
 
-    public Chef(YellBroadcaster yellBroadcaster) {
+    public Chef(Function<IngredientType, Boolean> ingredientRequester) {
         super();
-        this.yellBroadcaster = yellBroadcaster;
+        this.ingredientRequester = ingredientRequester;
         initIngredients();
     }
 
@@ -45,7 +45,7 @@ public class Chef extends AbstractCookBase {
         System.out.println("Yell!");
         if (Randomize.isRandomEvent(50)) {
             IngredientType neededIngredient = IngredientType.getRandomIngredient();
-            boolean gotIngredient = yellBroadcaster.askForIngredient(neededIngredient);
+            boolean gotIngredient = ingredientRequester.apply(neededIngredient);
 
             if (gotIngredient) {
                 ingredients.put(neededIngredient, ingredients.get(neededIngredient) + 1);
