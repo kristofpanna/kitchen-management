@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Kitchen {
-    private Chef chef;
     private List<AbstractCookBase> cooks = new ArrayList<>();
     private List<Helper> helpers = new ArrayList<>();
 
@@ -35,9 +34,9 @@ public class Kitchen {
     }
 
     private void hireChef() {
-        this.chef = new Chef(this::askForIngredient);
-        cooks.add(this.chef);
-        System.out.println("Our chef: " + this.chef);
+        Chef chef = new Chef(this::askForIngredient);
+        cooks.add(chef);
+        System.out.println("Our chef: " + chef);
     }
 
     public void startCooking() {
